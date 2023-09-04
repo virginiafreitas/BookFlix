@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>bookFlix</title>
+    <!-- added style from Bulma framework -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <script>
+           var checkedVisit = localStorage.getItem("visited");
+            if (checkedVisit) {
+                document.location.href = 'results.html';
+            }
+    </script>
+</head>
+<body  id="outer-background">
+  <nav class="navbar has-background-info" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item is-size-4 has-text-weight-bold" href="https://gsr142.github.io/bookFlix/ ">
+        <!-- header with placeholder logo and name --> 
+        <img src="./images/logo-transparent.png" alt="BookFlix: suggestions of books and movies" width="40" height="38" >
+            <h1 class="has-text-weight-bold">BookFlix</h1>
+          </a>
+        </div>
+      </nav>
+    <!-- intro to application -->
+    <div class="box has-background-success has-text-centered has-text-weight-bold is-size-3	">
+        <br/>Welcome to BookFlix. Answer 5 questions and we will suggest you a book to read and a movie to watch.
+        <br/>
+        <br/>
+    </div>
+    <!-- sections wrapping all the questions and options adding class and style -->
+    <div class="container is-widescreen" id="selectContainer">
+        <div class="notification is-primary has-background-info">
+            <div class="card" id="background">
+                <div class="card-content">
+                  <div class="content">
+                    <h2>Question 1</h2>
+                    <p>What is your favorite genre for movies?</p>
+                  </div>
+                  <div class="select">
+                    <select id="question1">
+                      <!-- each option corresponds to a numerical value for the API call -->
+                      <option>Select Answer</option>
+                      <option value="1">Action</option>
+                      <option value="4">Comedy</option>
+                      <option value="6">Documentary</option>
+                      <option value="7">Drama</option>
+                      <option value="11">Horror</option>
+                      <option value="21">Kids</option>
+                      <option value="14">Romance</option>
+                      <option value="15">Sci-Fi</option>
+                      <option value="17">Thriller</option>
+                      <option value="19">Western</option>
+                    </select>
+                  </div>
+                </div>
+            </div>
+            <br>
+            <div class="card" id="background">
+                <div class="card-content">
+                  <div class="content">
+                    <h2>Question 2</h2>
+                    <p>What is your favorite genre for books?</p>
+                  </div>
+                  <div class="select">
+                    <select id="question2" required>
+                      <option>Select Answer</option>
+
+                      <option value="fiction">Fiction</option>
+                      <option value="non-fiction">Non-Fiction</option>
+                      <option value="romance">Romance</option>
+                      <option value="biography">Biography</option>
+                      <option value="comic">Comic</option>
+
+                    </select>
+                  </div>
+                </div>
+            </div>
+            <br>
+            <div class="card" id="background">
+                <div class="card-content">
+                  <div class="content">
+                    <h2>Question 3</h2>
+                    <p>Do you prefer the style of writing from which time-period?</p>
+                  </div>
+                  <div class="select">
+                    <select id="question3" >
+                      <option>Select Answer</option>
+                      <option value="1990">Pre 1900</option>
+                      <option value="1900-1950">1900 - 1950</option>
+                      <option value="1950-1970">1950 - 1970</option>
+                      <option value="1970-1980">1970 - 1980</option>
+                      <option value="1980-1990">1980 - 1990</option>
+                      <option value="1990-2000">1990 - 2000</option>
+                      <option value="2000-2010">2000 - 2010</option>
+                      <option value="2010-2023">2010 - 2023</option>
+                    </select>
+                  </div>
+                </div>
+            </div>
+            <br>
+            <div class="card" id="background">
+                <div class="card-content">
+                  <div class="content">
+                    <h2>Question 4</h2>
+                    <p>Select the time-period that you'd like to watch a movie from:</p>
+                  </div>
+                  <div class="select">
+                    <select id="question4" >
+                      <!-- changed values to make easier for API call -->
+                        <option>Select Answer</option>
+                        <option value="1920">Pre 1950</option>                        
+                        <option value="1950">1950 - 1959</option>
+                        <option value="1960">1960 - 1969</option>
+                        <option value="1970">1970 - 1979</option>
+                        <option value="1980">1980 - 1989</option>
+                        <option value="1990">1990 - 1999</option>
+                        <option value="2000">2000 - 2009</option>
+                        <option value="2010">2010 - 2019</option>
+                        <option value="2020">2020 - Now</option>
+                    </select>
+                  </div>
+                </div>
+            </div>
+            <br>
+            <div class="card" id="background">
+                <div class="card-content">
+                  <div class="content">
+                    <h2>Question 5</h2>
+                    <p>What streaming service do you use?</p>
+                  </div>
+                  <div class="select">
+                    <select id="question5">
+                      <!-- values correspond to keys in the API call -->
+                      <option>Select Answer</option>
+                      <option value="26">Amazon Prime</option>
+                      <option value="371">AppleTV+</option>
+                      <option value="372">Disney+</option>
+                      <option value="387">HBO Max</option>
+                      <option value="157">Hulu</option>
+                      <option value="203">Netflix</option>
+                    </select>
+                  </div>
+                </div>
+            </div>
+        </div>
+      </div>  
+      <br>
+<!-- added submit button and attributes-->
+<form id="submit">
+  <div class="buttons">
+      <button type="submit" class="button is-success is-large is-fullwidth is-focused has-text-weight-bold ">Click to submit your answers</button>
+  </div>
+</form>
+
+
+    <!-- links javascript file to html -->
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>bookFlix</title>
+    <!-- added style from Bulma framework -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <!-- added jQuery library for javascript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+
+</head>
+<body id="outer-background">
+    <!-- added style similar to intro page -->
+    <nav class="navbar has-background-info" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item is-size-4" href="https://gsr142.github.io/bookFlix/ ">
+            <img src="./images/logo-transparent.png" alt="BookFlix: suggestions of books and movies" width="40" height="38" >
+            <h1 class="has-text-weight-bold">BookFlix</h1>
+          </a>
+        </div>
+    </nav>
+
+    <div class="box has-background-success has-text-centered has-text-weight-bold is-size-3	">
+        <br/>Here are our suggestions:
+        <br/>
+        <br/>
+    </div>
+
+        <!-- button only for testing -->
+    <!-- <button id="button">button</button> -->
+
+    <div class="container is-widescreen">
+      <div class="notification is-primary has-background-info">
+        <!-- wraps in a card all the results information -->
+          <div class="card" id="background">
+              <div class="card-content">
+                <!-- display both books and movies information in the same row -->
+                <div class="row">
+                  <div class="columns">
+                    <!-- display the books info in a column on the left side -->
+                    <div class="column">
+                        <div class="row has-text-centered has-text-weight-bold is-size-2">
+                          <h1>Books</h1>
+                        </div>
+                        <br/>
+                        <div class="row" id="bookContainer"></div>
+                  </div>
+                    <!-- display the movies info in a column on the left side -->
+                    <div class="column">
+                        <div class="row has-text-centered has-text-weight-bold is-size-2">
+                          <h1>TV Shows / Movies</h1>
+                        </div>
+                        <br/>
+                        <!-- display the info of each of the 5 movies in a separate row -->
+                        <div class="row">
+                          <!-- displays the title, start, genre and description info in the right side -->
+                          <div class="columns">
+
+                            <div class="column is-3">
+                              <!-- placeholder image to be replaced by API on javascript -->
+                              <img id="result1-movies-image" src="https://www.trendingtop5.com/wp-content/uploads/2017/08/unnamed.png" alt="poster of 1st book suggestion" width="120" height="150" >
+                            </div>
+                            <!-- displays the image on a column on the left side -->
+                            <div class="column">
+                              <ul>
+                                <li id="result1-title"></li>
+                                <li id="result1-stars"></li>
+                                <li id="result1-genre"></li>
+                                <li id="result1-description"></li>
+                                </ul>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="columns">
+                            <div class="column is-3">
+                              <img id="result2-movies-image" src="https://www.trendingtop5.com/wp-content/uploads/2017/08/unnamed.png" alt="poster of 2nd book suggestion" width="120" height="150" >
+                            </div>
+                            <div class="column">
+                              <ul>
+                                <li id="result2-title"></li>
+                                <li id="result2-stars"></li>
+                                <li id="result2-genre"></li>
+                                <li id="result2-description"></li>
+                                </ul>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="columns">
+                            <div class="column is-3">
+                              <img id="result3-movies-image" src="https://www.trendingtop5.com/wp-content/uploads/2017/08/unnamed.png" alt="poster of 3rd book suggestion" width="120" height="150" >
+                            </div>
+                            <div class="column">
+                              <ul>
+                                <li id="result3-title"></li>
+                                <li id="result3-stars"></li>
+                                <li id="result3-genre"></li>
+                                <li id="result3-description"></li>
+                                </ul>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="columns">
+                            <div class="column is-3">
+                              <img id="result4-movies-image" src="https://www.trendingtop5.com/wp-content/uploads/2017/08/unnamed.png" alt="poster of 4th book suggestion" width="120" height="150" >
+                            </div>
+                            <div class="column">
+                              <ul>
+                                <li id="result4-title"></li>
+                                <li id="result4-stars"></li>
+                                <li id="result4-genre"></li>
+                                <li id="result4-description"></li>
+                                </ul>
+                            </div>
+                          </div>
+                        </div>
+                        
+                    </div>
+
+                  </div>
+                  
+                </div>
+
+
+
+              </div>
+          </div>
+      </div>
+
+    </div>
+
+    <br>
+
+<!-- added return button -->
+  <div class="buttons">
+      <button id="return" type="return" class="button is-success is-large is-fullwidth is-focused has-text-weight-bold ">Click to start a new search</button>
+  </div>
+
+
+    <!-- reference to the movies API -->
+    <a href="watchmode.com">Streaming Data Powered by watchmode</a>
+    <script src="./assets/js/results.js"></script>
+</body>
