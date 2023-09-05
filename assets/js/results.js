@@ -83,8 +83,12 @@ $(document).ready(function () {
         for (var i = 0; i < data.items.length; i++) {
             //store in a variable the published date for each book on the API
             var publishedDate = data.items[i].volumeInfo.publishedDate;
-            //converts the strings published date info into an integer, extracting only indexes 0 though 4 of the strings
-            var yearPublished = parseInt(publishedDate.substring(0, 4));
+            console.log(publishedDate)
+            if (publishedDate) {
+                //converts the strings published date info into an integer, extracting only indexes 0 though 4 of the strings
+                var yearPublished = parseInt(publishedDate.substring(0, 4));
+            }
+            console.log(yearPublished)
 
             //if statement to check if inside each year iterated from yearPublished is included on the yearArray array
             //and if so, push that item from the API to the initially empty matchedItems array
@@ -92,7 +96,7 @@ $(document).ready(function () {
                 matchedItems.push(data.items[i]);
 
                 //assign to the parameters the pulled info from the API for that index
-                var title = data.items[i].volumeInfo.title;
+                var Title = data.items[i].volumeInfo.title;
                 var author = data.items[i].volumeInfo.authors;
                 var category = data.items[i].volumeInfo.categories;
                 var description = data.items[i].volumeInfo.description;
@@ -111,12 +115,12 @@ $(document).ready(function () {
 
                 var imgBtn = document.createElement('a');
                 imgBtn.setAttribute('type', 'submit');
-                imgBtn.addEventListener('click', displayBookDetail.bind(null, title, author, category, description, 
+                imgBtn.addEventListener('click', displayBookDetail.bind(null, Title, author, category, description, 
                     images, bookid, buyLink, saleability, publisher, publishedDate));
 
                 var bookImage = document.createElement('img');
                 bookImage.src = images;
-                bookImage.alt = title;
+                bookImage.alt = Title;
                 bookImage.width = '120';
                 bookImage.height = '150';
 
@@ -126,7 +130,7 @@ $(document).ready(function () {
                 var resultContainer = document.createElement('ul');
 
                 var titleEl = document.createElement('li');
-                titleEl.textContent = 'Title: ' + title;
+                titleEl.textContent = 'Title: ' + Title;
 
                 var authorEl = document.createElement('li');
                 authorEl.textContent = 'Author: ' + author;
@@ -154,7 +158,7 @@ $(document).ready(function () {
     }
 
     //function to display the details for each book individually upon clicking on the book image
-    function displayBookDetail(title, author, category, description, images, bookid, buyLink, 
+    function displayBookDetail(Title, author, category, description, images, bookid, buyLink, 
         saleability, publisher, publishedDate) {
         var modal = document.createElement('div');
         //add CSS classes "modal" and "is-active" with classList DOM property
@@ -165,7 +169,7 @@ $(document).ready(function () {
                             <div class="modal-background"></div>
                             <div class="modal-card p-4">
                             <header class="modal-card-head">
-                                <p class="modal-card-title">${title}</p>
+                                <p class="modal-card-title">${Title}</p>
                                 <button class="delete" aria-label="close"></button>
                             </header>
                             <section class="modal-card-body">
